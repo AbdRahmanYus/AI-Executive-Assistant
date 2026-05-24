@@ -1,0 +1,513 @@
+{
+  "intents": [
+    {
+      "intent": "Greeting",
+      "text": [
+        "Hi", "Hi there", "Hola", "Hello", "Hello there", "Hya", "Hya there",
+        "Hey", "Hey there", "Good morning", "Good afternoon", "Good evening",
+        "Howdy", "What's up", "Sup"
+      ],
+      "responses": [
+        "Hello! I'm your AI Executive Assistant. How can I help you today?",
+        "Hi there! Ready to help you manage your day. What do you need?",
+        "Hey! Your executive assistant here. What can I do for you?"
+      ],
+      "extension": { "function": "", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "NA", "entities": []
+    },
+    {
+      "intent": "GoodBye",
+      "text": [
+        "Bye", "Adios", "See you later", "Goodbye", "Bye bye",
+        "See you", "Later", "Take care", "Catch you later", "Ciao"
+      ],
+      "responses": [
+        "Goodbye! Have a productive day!",
+        "See you later! Let me know if you need anything.",
+        "Take care! Your assistant is always here when you need it."
+      ],
+      "extension": { "function": "", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": true },
+      "entityType": "NA", "entities": []
+    },
+    {
+      "intent": "Thanks",
+      "text": [
+        "OK thank you", "OK thanks", "Thanks", "Thank you", "That's helpful",
+        "Great thanks", "Appreciate it", "Much appreciated", "Cheers",
+        "Thanks a lot", "Thank you so much", "That's great thanks"
+      ],
+      "responses": [
+        "No problem! Happy to help.",
+        "You're welcome! Anything else I can assist with?",
+        "My pleasure! Let me know if you need anything else."
+      ],
+      "extension": { "function": "", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "NA", "entities": []
+    },
+    {
+      "intent": "SendEmail",
+      "text": [
+        "Send an email",
+        "Send an email to John",
+        "Email Sarah about the meeting",
+        "I need to send an email",
+        "Can you send an email for me",
+        "Please send an email to the team",
+        "Write and send an email",
+        "Shoot an email to Mike",
+        "Fire off an email to marketing",
+        "Send a message via email",
+        "I want to email someone",
+        "Help me send an email",
+        "Send email to client",
+        "Email my boss",
+        "Compose and send an email"
+      ],
+      "responses": [
+        "Sure! Who should I send the email to, and what's the subject?",
+        "I'll send that email. What's the recipient's address and what should I say?",
+        "On it! Please provide the recipient, subject, and message body."
+      ],
+      "extension": { "function": "tools.gmail.send_email", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "EmailCompose", "clear": false },
+      "entityType": "EMAIL_ACTION", "entities": []
+    },
+    {
+      "intent": "DraftEmail",
+      "text": [
+        "Draft an email",
+        "Write a draft email",
+        "Create a draft for me",
+        "I want to draft an email first",
+        "Draft an email before sending",
+        "Prepare an email draft",
+        "Can you draft an email to the client",
+        "Write an email draft to HR",
+        "I need a draft email",
+        "Help me draft a message",
+        "Create a draft email for review",
+        "Draft a professional email",
+        "Write a draft before I send it",
+        "Make an email draft",
+        "Prepare a draft message"
+      ],
+      "responses": [
+        "I'll prepare a draft for you. Who is it for and what should it say?",
+        "Sure, I'll draft it so you can review before sending. What's the recipient and subject?",
+        "Draft coming up! Give me the recipient, subject, and key points."
+      ],
+      "extension": { "function": "tools.gmail.draft_email", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "DraftReview", "clear": false },
+      "entityType": "EMAIL_ACTION", "entities": []
+    },
+    {
+      "intent": "ReadEmails",
+      "text": [
+        "Read my emails",
+        "Check my inbox",
+        "What emails do I have",
+        "Show me my emails",
+        "Any new emails",
+        "Check my email",
+        "What's in my inbox",
+        "Show me my inbox",
+        "Read my latest emails",
+        "What messages do I have",
+        "Any unread emails",
+        "Check my messages",
+        "Show recent emails",
+        "What did I receive",
+        "Any emails today",
+        "Pull up my emails",
+        "View my inbox"
+      ],
+      "responses": [
+        "Let me check your inbox right away!",
+        "Pulling up your recent emails now...",
+        "Checking your inbox for you!"
+      ],
+      "extension": { "function": "tools.gmail.read_emails", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "EMAIL_ACTION", "entities": []
+    },
+    {
+      "intent": "SendTemplateEmail",
+      "text": [
+        "Send a template email",
+        "Use the onboarding template",
+        "Send an onboarding email",
+        "Use the follow-up template",
+        "Send a follow-up email",
+        "Send the meeting template",
+        "Use a template for the email",
+        "Send a template to the new hire",
+        "Send meeting request template",
+        "Use email template",
+        "Send followup template email",
+        "Onboarding email for new employee",
+        "Send meeting template to client"
+      ],
+      "responses": [
+        "Which template would you like — onboarding, followup, or meeting?",
+        "Happy to send a template! Is it onboarding, followup, or meeting?",
+        "Sure! Which template: onboarding, followup, or meeting?"
+      ],
+      "extension": { "function": "tools.gmail.send_template_email", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "TemplateSelect", "clear": false },
+      "entityType": "EMAIL_ACTION", "entities": []
+    },
+    {
+      "intent": "CreateCalendarEvent",
+      "text": [
+        "Create a calendar event",
+        "Schedule a meeting",
+        "Add an event to my calendar",
+        "Book a meeting",
+        "Set up a meeting",
+        "Schedule a call",
+        "Create a meeting",
+        "Add a meeting to my schedule",
+        "Book a call for tomorrow",
+        "Put something on my calendar",
+        "Schedule an appointment",
+        "Create an event",
+        "Set a meeting with the team",
+        "Schedule team standup",
+        "Book a slot on my calendar",
+        "Add this to my calendar",
+        "Plan a meeting",
+        "Organise a meeting"
+      ],
+      "responses": [
+        "I'll schedule that for you! What's the title, date, and time?",
+        "Sure! Give me the event name, date, time, and I'll add it to your calendar.",
+        "On it! What's the event, when is it, and who should attend?"
+      ],
+      "extension": { "function": "tools.gcalendar.create_event", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "CalendarCreate", "clear": false },
+      "entityType": "CALENDAR_ACTION", "entities": []
+    },
+    {
+      "intent": "ListCalendarEvents",
+      "text": [
+        "What's on my calendar",
+        "Show my schedule",
+        "What meetings do I have",
+        "List my events",
+        "What do I have today",
+        "Show upcoming meetings",
+        "What's coming up",
+        "Check my schedule",
+        "Any meetings today",
+        "What are my upcoming events",
+        "Show my calendar",
+        "What's my schedule today",
+        "Show me my week",
+        "Any events this week",
+        "What meetings are scheduled",
+        "View my calendar",
+        "Upcoming appointments"
+      ],
+      "responses": [
+        "Let me pull up your schedule!",
+        "Checking your calendar now...",
+        "Here are your upcoming events!"
+      ],
+      "extension": { "function": "tools.gcalendar.list_events", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "CALENDAR_ACTION", "entities": []
+    },
+    {
+      "intent": "SetReminder",
+      "text": [
+        "Set a reminder",
+        "Remind me about the meeting",
+        "Create a reminder",
+        "Set an alarm",
+        "Remind me at 3pm",
+        "Add a reminder",
+        "Set a reminder for tomorrow",
+        "Remind me to call John",
+        "Create a reminder for the deadline",
+        "Set a reminder for the presentation",
+        "Remind me to follow up",
+        "I need a reminder",
+        "Set a daily reminder",
+        "Remind me about this task"
+      ],
+      "responses": [
+        "I'll set that reminder! What should I remind you about, and when?",
+        "Sure! What's the reminder for and what time?",
+        "Got it! Give me the reminder details and the date/time."
+      ],
+      "extension": { "function": "tools.gcalendar.create_reminder", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "ReminderCreate", "clear": false },
+      "entityType": "CALENDAR_ACTION", "entities": []
+    },
+    {
+      "intent": "SearchDriveFiles",
+      "text": [
+        "Find a file in my drive",
+        "Search for a document",
+        "Look for a file",
+        "Find the project report",
+        "Search my Google Drive",
+        "Can you find a file",
+        "Look up the proposal",
+        "Search for the spreadsheet",
+        "Find the contract",
+        "Look for the presentation",
+        "Search drive for the budget",
+        "Find the document",
+        "Look for my files",
+        "Search for a PDF in drive",
+        "Find that report"
+      ],
+      "responses": [
+        "I'll search your Drive! What's the file or keyword I should look for?",
+        "On it! What should I search for in your Google Drive?",
+        "Let me find that for you. What's the file name or keyword?"
+      ],
+      "extension": { "function": "tools.drive.search_files", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "DRIVE_ACTION", "entities": []
+    },
+    {
+      "intent": "ListDriveFiles",
+      "text": [
+        "List my files",
+        "Show my Drive files",
+        "What files do I have",
+        "Show recent files",
+        "List recent documents",
+        "What's in my Google Drive",
+        "Show my documents",
+        "Recent files please",
+        "List my documents",
+        "What files are in my drive",
+        "Show my drive",
+        "Files in my drive",
+        "View my drive files"
+      ],
+      "responses": [
+        "Let me pull up your recent Drive files!",
+        "Here are your files in Google Drive!",
+        "Fetching your Drive files now..."
+      ],
+      "extension": { "function": "tools.drive.list_files", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "DRIVE_ACTION", "entities": []
+    },
+    {
+      "intent": "CreateDocument",
+      "text": [
+        "Create a Google Doc",
+        "Write a new document",
+        "Create a document",
+        "Make a new Google Doc",
+        "Start a new document",
+        "Create a doc for me",
+        "Write a document",
+        "Make a document",
+        "Start a Google Doc",
+        "Create a new file in docs",
+        "Write up a document",
+        "Create and save a document",
+        "New document please",
+        "Draft a new document"
+      ],
+      "responses": [
+        "I'll create that document! What's the title and content?",
+        "Sure! Give me a title and what you'd like it to say.",
+        "On it! What should the document be titled and what should it contain?"
+      ],
+      "extension": { "function": "tools.docs.create_document", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "DocumentCreate", "clear": false },
+      "entityType": "DOCS_ACTION", "entities": []
+    },
+    {
+      "intent": "ReadDocument",
+      "text": [
+        "Read a document",
+        "Open a Google Doc",
+        "Read the document",
+        "Show me the document content",
+        "Read the doc",
+        "What does the document say",
+        "Open this document",
+        "Read from Google Docs",
+        "Show document contents",
+        "Read my doc",
+        "What's in the document",
+        "Get the content of the document"
+      ],
+      "responses": [
+        "I'll read that document. What's the document ID?",
+        "Sure! Give me the document ID and I'll read it for you.",
+        "Happy to read it! What's the Google Doc ID?"
+      ],
+      "extension": { "function": "tools.docs.read_document", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "DOCS_ACTION", "entities": []
+    },
+    {
+      "intent": "SummarizeFile",
+      "text": [
+        "Summarize a file",
+        "Summarize this document",
+        "Give me a summary of the file",
+        "Summarize the drive file",
+        "What does this file say",
+        "Can you summarize this",
+        "Give me the key points of the document",
+        "Summarize the report",
+        "Briefly summarize the file",
+        "What are the highlights of the document",
+        "Give me a quick summary",
+        "Sum up the document",
+        "Overview of the file",
+        "TL;DR of the document"
+      ],
+      "responses": [
+        "I'll summarize that for you! What's the file ID?",
+        "Sure! Give me the Google Drive file ID and I'll summarize it.",
+        "On it! What's the file ID you want summarized?"
+      ],
+      "extension": { "function": "tools.summarize.summarize_drive_file", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "DRIVE_ACTION", "entities": []
+    },
+    {
+      "intent": "CreateNote",
+      "text": [
+        "Create a note",
+        "Save a note",
+        "Take a note",
+        "Write a note",
+        "Add a note",
+        "Save this note",
+        "Create a quick note",
+        "Note this down",
+        "Jot this down",
+        "Save a reminder note",
+        "Keep note of this",
+        "Write this down for me",
+        "Create a note for me",
+        "Remember this note"
+      ],
+      "responses": [
+        "I'll save that note! What's the title and content?",
+        "Sure! Give me a title and what you'd like to note.",
+        "Got it! What should the note say?"
+      ],
+      "extension": { "function": "tools.notes.create_note", "entities": true, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "NOTES_ACTION", "entities": []
+    },
+    {
+      "intent": "TimeQuery",
+      "text": [
+        "What is the time?", "What's the time?", "Do you know what time it is?",
+        "Can you tell me the time?", "Tell me what time it is", "Time",
+        "What time is it?", "Current time please", "Time now"
+      ],
+      "responses": [
+        "Let me check the time for you!",
+        "One moment, checking the current time..."
+      ],
+      "extension": { "function": "", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "NA", "entities": []
+    },
+    {
+      "intent": "NameQuery",
+      "text": [
+        "What is your name?", "Who are you?", "What can I call you?",
+        "What should I call you?", "Tell me your name", "What are you called?"
+      ],
+      "responses": [
+        "I'm your AI Executive Assistant! You can call me Assistant.",
+        "I'm your personal AI Executive Assistant, here to manage your Google Workspace.",
+        "Call me your Executive Assistant — I'm here to help with emails, calendar, and more!"
+      ],
+      "extension": { "function": "", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "NA", "entities": []
+    },
+    {
+      "intent": "CapabilitiesQuery",
+      "text": [
+        "What can you do?",
+        "What are your capabilities?",
+        "How can you help me?",
+        "What do you do?",
+        "Tell me what you can do",
+        "What features do you have",
+        "What tasks can you help with",
+        "What are your functions",
+        "Help me understand your capabilities",
+        "Give me a list of what you can do",
+        "What services do you offer",
+        "What can I ask you to do"
+      ],
+      "responses": [
+        "I can help you with: sending & drafting emails, managing your calendar, searching Google Drive, creating documents, setting reminders, and summarizing files!",
+        "Here's what I can do: manage Gmail (send, draft, read), schedule calendar events, search Drive files, create Google Docs, set reminders, and summarize documents.",
+        "I'm your Google Workspace assistant! I handle emails, meetings, Drive files, documents, and reminders."
+      ],
+      "extension": { "function": "", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "NA", "entities": []
+    },
+    {
+      "intent": "Shutup",
+      "text": [
+        "Be quiet", "Shut up", "Stop talking", "Enough", "Please be quiet",
+        "Quiet", "Stop", "Enough talking", "I don't need anything else"
+      ],
+      "responses": [
+        "Of course! I'll be quiet. Just let me know when you need something.",
+        "Understood! I'm here when you need me.",
+        "No problem! I'll stand by."
+      ],
+      "extension": { "function": "", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": true },
+      "entityType": "NA", "entities": []
+    },
+    {
+      "intent": "Unclear",
+      "text": [
+        "I don't know",
+        "Not sure what I want",
+        "Can you guess",
+        "Figure it out",
+        "Just do something useful",
+        "Random task",
+        "Surprise me"
+      ],
+      "responses": [
+        "I'm not sure what you need — could you rephrase? I can help with emails, calendar, Drive, Docs, and reminders.",
+        "I didn't quite catch that! Try asking me to send an email, check your calendar, or find a file.",
+        "Could you clarify? I'm best at email, scheduling, documents, and file management."
+      ],
+      "extension": { "function": "", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "NA", "entities": []
+    },
+    {
+      "intent": "Swearing",
+      "text": ["fuck off", "fuck", "twat", "shit", "damn it", "crap", "bloody hell"],
+      "responses": [
+        "Let's keep it professional! How can I assist you?",
+        "I'm here to help — let me know what you need in a nicer way!",
+        "No worries! Take a breath and let me know what you need."
+      ],
+      "extension": { "function": "", "entities": false, "responses": [] },
+      "context": { "in": "", "out": "", "clear": false },
+      "entityType": "NA", "entities": []
+    }
+  ]
+}
