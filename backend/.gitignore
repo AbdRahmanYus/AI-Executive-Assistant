@@ -1,3 +1,5 @@
 .env
 __pycache__
-.ipynb_cheackpoint
+.ipynb_cheackpoints
+.vscode
+
